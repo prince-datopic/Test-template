@@ -3,12 +3,10 @@ version: '3.8'
 services:
   backend:
     build:
-      context: ./webapp-backend  # Assuming your backend Dockerfile is in the 'backend' folder
+      context: ./webapp-backend  # Assuming your backend Dockerfile is in the 'webapp-backend' folder
     container_name: backend
     ports:
       - "5000:5000"
-    volumes:
-      - ./webapp-backend:/app  # Mount your backend source code to the container (optional for live development)
     environment:
       - NODE_ENV=development
     networks:
@@ -16,7 +14,7 @@ services:
 
   frontend:
     build:
-      context: ./webapp  # Assuming your frontend Dockerfile is in the 'frontend' folder
+      context: ./webapp  # Assuming your frontend Dockerfile is in the 'webapp' folder
     container_name: frontend
     ports:
       - "8001:80"
